@@ -18,13 +18,26 @@
             <h3 id="result"></h3>
         </div>
         <div class="games">
-            <div class="option" onclick="pickOption('Gajah')">Gajah</div>
-            <div class="option" onclick="pickOption('Manusia')">Manusia</div>
-            <div class="option" onclick="pickOption('Semut')">Semut</div>
+            <div class="option" onclick="pickOption('🐘')">🐘</div>
+            <div class="option" onclick="pickOption('👨')">👨</div>
+            <div class="option" onclick="pickOption('🐜')">🐜</div>
         </div> </br>
         <nav class="games">
             <a class="pilih" href="index.html">Kembali</a>
         </nav>
+
+        <div class="games">
+            <h5>Peraturan</h5>
+        </div>
+        <div class="games">
+            <h5>🐘vs👨 : pemenang 🐘</h5>
+        </div>
+        <div class="games">
+            <h5>🐘vs🐜 : pemenang 🐜</h5>
+        </div>
+        <div class="games">
+            <h5>👨vs🐜 : pemenang 👨</h5>
+        </div>
     </div>
 
     <script>
@@ -54,23 +67,23 @@
             }
 
             botBrain() {
-                const option = ["Gajah", "Manusia", "Semut"];
+                const option = ["🐘", "👨", "🐜"];
                 const bot = option[Math.floor(Math.random() * option.length)];
                 return bot;
             }
 
             winCalculation() {
-                if (this.botOption == "Gajah" && this.playerOption == "Semut") {
+                if (this.botOption == "🐘" && this.playerOption == "🐜") {
                     return this.winner = this.playerName
-                } else if (this.botOption == "Gajah" && this.playerOption == "Manusia") {
+                } else if (this.botOption == "🐘" && this.playerOption == "👨") {
                     return this.winner = this.botName;
-                } else if (this.botOption == "Manusia" && this.playerOption == "Semut") {
+                } else if (this.botOption == "👨" && this.playerOption == "🐜") {
                     return this.winner = this.botName;
-                } else if (this.botOption == "Manusia" && this.playerOption == "Gajah") {
+                } else if (this.botOption == "👨" && this.playerOption == "🐘") {
                     return this.winner = this.playerName
-                } else if (this.botOption == "Semut" && this.playerOption == "Manusia") {
+                } else if (this.botOption == "🐜" && this.playerOption == "👨") {
                     return this.winner = this.playerName
-                } else if (this.botOption == "Semut" && this.playerOption == "Gajah") {
+                } else if (this.botOption == "🐜" && this.playerOption == "🐘") {
                     return this.winner = this.botName;
                 } else {
                     return this.winner = "SERI"
@@ -98,7 +111,7 @@
             result.textContent = "..."
 
             setTimeout(() => {
-                inGame.textContent = `kamu memilih ${start.getPlayerOption} VS Epulbot memilih ${start.getBotOption}`
+                inGame.textContent = `${start.getPlayerOption} VS ${start.getBotOption}`
                 result.textContent = start.matchResult();
             }, 1500);
 
